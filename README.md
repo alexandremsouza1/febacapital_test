@@ -40,12 +40,11 @@ O projeto foi desenvolvido seguindo boas práticas de desenvolvimento e utiliza 
 ### Criação de Usuário
 
 Para criar um usuário via linha de comando, utilize:
-```bash
 php yii create-user --login="alexandre123" --password="123" --name="Alexandre"
 
 
-Endpoints da API
-
+### Endpoints da API
+```bash
     POST /login: Autenticação de usuários
     Content-Type: application/x-www-form-urlencoded
     Corpo da Requisição:
@@ -99,3 +98,4 @@ Listar livros com filtro de autor e ordenação:
 bash
 
 GET /books?author=John&sort=name
+ ```
