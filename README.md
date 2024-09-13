@@ -73,9 +73,8 @@ php yii create-user --login="alexandre123" --password="123" --name="Alexandre"
 
 ### Exemplos de Uso
 
-#### Autenticação de Usuário
 
-- **Requisição de Autenticação**
+- **Requisição com Autenticação**
 
     ```bash
     curl -X POST http://localhost:8000/login \
