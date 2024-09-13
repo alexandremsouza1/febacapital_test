@@ -40,7 +40,9 @@ O projeto foi desenvolvido seguindo boas práticas de desenvolvimento e utiliza 
 ### Criação de Usuário
 
 Para criar um usuário via linha de comando, utilize:
-``php yii create-user --login="alexandre123" --password="123" --name="Alexandre"`
+ ```bash
+php yii create-user --login="alexandre123" --password="123" --name="Alexandre"
+```
 
 
 - `POST /login`: Autenticação de usuários  
