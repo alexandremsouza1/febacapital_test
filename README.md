@@ -44,19 +44,17 @@ php yii create-user --login="alexandre123" --password="123" --name="Alexandre"
 
 
 ### Endpoints da API
-```bash
-    POST /login: Autenticação de usuários
-    Content-Type: application/x-www-form-urlencoded
-    Corpo da Requisição:
 
-    json
-
-    {
-        "login": "alexandre123",
-        "password": "123"
-    }
-
-    GET /customers: Listagem de clientes
+- **POST /login**: Autenticação de usuários  
+  `Content-Type: application/x-www-form-urlencoded`  
+  **Corpo da Requisição:**
+  ```json
+  {
+      "login": "alexandre123",
+      "password": "123"
+  }
+  ```
+  - **GET /GET**: Listagem de clientes
     Parâmetros:
         name (opcional): Filtro por nome
         cpf (opcional): Filtro por CPF
@@ -64,7 +62,7 @@ php yii create-user --login="alexandre123" --password="123" --name="Alexandre"
         limit (opcional): Número máximo de registros
         offset (opcional): Pular registros
 
-    GET /books: Listagem de livros
+    **GET /books**: Listagem de livros
     Parâmetros:
         isbn (opcional): Filtro por ISBN
         title (opcional): Filtro por título
@@ -72,30 +70,3 @@ php yii create-user --login="alexandre123" --password="123" --name="Alexandre"
         sort (opcional): Ordenar por nome
         limit (opcional): Número máximo de registros
         offset (opcional): Pular registros
-
-Exemplos de Uso
-
-    Listar todos os clientes:
-
-    bash
-
-GET /customers
-
-Listar clientes com filtro de nome:
-
-bash
-
-GET /customers?name=John
-
-Listar livros com filtro de ISBN:
-
-bash
-
-GET /books?isbn=9999999
-
-Listar livros com filtro de autor e ordenação:
-
-bash
-
-GET /books?author=John&sort=name
- ```
