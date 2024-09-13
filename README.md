@@ -84,7 +84,7 @@ php yii create-user --login="alexandre123" --password="123" --name="Alexandre"
     ```
 
     ```bash
-    curl -X GET "http://localhost:8000/api/customers?name=Alexandre&cpf=12345678900&sort=name&limit=10&offset=0" \
+    curl -X GET "http://localhost:8000/customers?name=Alexandre&cpf=12345678900&sort=name&limit=10&offset=0" \
         -H "Authorization: Bearer <YOUR_ACCESS_TOKEN>"
     ```
 
