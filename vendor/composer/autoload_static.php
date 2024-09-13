@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit72ac0b8252822528c034bbf39a2eb746
+class ComposerStaticInit114b68e690307fdc44cc2b07424c61fb
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -34,6 +34,10 @@ class ComposerStaticInit72ac0b8252822528c034bbf39a2eb746
             'yii\\composer\\' => 13,
             'yii\\bootstrap5\\' => 15,
             'yii\\' => 4,
+        ),
+        'k' => 
+        array (
+            'kaabar\\jwt\\' => 11,
         ),
         'c' => 
         array (
@@ -67,11 +71,17 @@ class ComposerStaticInit72ac0b8252822528c034bbf39a2eb746
             'Psr\\Http\\Message\\' => 17,
             'Psr\\EventDispatcher\\' => 20,
             'Psr\\Container\\' => 14,
+            'Psr\\Clock\\' => 10,
             'PhpParser\\' => 10,
         ),
         'M' => 
         array (
             'Masterminds\\' => 12,
+        ),
+        'L' => 
+        array (
+            'Lcobucci\\JWT\\' => 13,
+            'Lcobucci\\Clock\\' => 15,
         ),
         'G' => 
         array (
@@ -125,6 +135,10 @@ class ComposerStaticInit72ac0b8252822528c034bbf39a2eb746
         'yii\\' => 
         array (
             0 => __DIR__ . '/..' . '/yiisoft/yii2',
+        ),
+        'kaabar\\jwt\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/kaabar-jwt/yii2-jwt/src',
         ),
         'cebe\\markdown\\' => 
         array (
@@ -223,6 +237,10 @@ class ComposerStaticInit72ac0b8252822528c034bbf39a2eb746
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
         ),
+        'Psr\\Clock\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/clock/src',
+        ),
         'PhpParser\\' => 
         array (
             0 => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser',
@@ -230,6 +248,14 @@ class ComposerStaticInit72ac0b8252822528c034bbf39a2eb746
         'Masterminds\\' => 
         array (
             0 => __DIR__ . '/..' . '/masterminds/html5/src',
+        ),
+        'Lcobucci\\JWT\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/lcobucci/jwt/src',
+        ),
+        'Lcobucci\\Clock\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/lcobucci/clock/src',
         ),
         'GuzzleHttp\\Psr7\\' => 
         array (
@@ -1520,10 +1546,10 @@ class ComposerStaticInit72ac0b8252822528c034bbf39a2eb746
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit72ac0b8252822528c034bbf39a2eb746::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit72ac0b8252822528c034bbf39a2eb746::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit72ac0b8252822528c034bbf39a2eb746::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit72ac0b8252822528c034bbf39a2eb746::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit114b68e690307fdc44cc2b07424c61fb::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit114b68e690307fdc44cc2b07424c61fb::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit114b68e690307fdc44cc2b07424c61fb::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit114b68e690307fdc44cc2b07424c61fb::$classMap;
 
         }, null, ClassLoader::class);
     }

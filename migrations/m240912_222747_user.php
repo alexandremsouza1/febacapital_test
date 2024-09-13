@@ -14,10 +14,9 @@ class m240912_222747_user extends Migration
     {
         $this->createTable('{{%user}}', [
             'id' => $this->primaryKey(),
-            'username' => $this->string()->notNull(),
-            'password' => $this->string()->notNull(),
-            'authKey' => $this->string()->notNull(),
-            'accessToken' => $this->string()->notNull(),
+            'login' => $this->string()->notNull()->unique(),
+            'password_hash' => $this->string()->notNull(),
+            'name' => $this->string()->notNull(),
         ]);
 
     }

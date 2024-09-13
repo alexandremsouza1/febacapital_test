@@ -3,6 +3,8 @@
 $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
 
+use kaabar\jwt\JwtHttpBearerAuth;
+
 $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
@@ -15,6 +17,7 @@ $config = [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'q9RX8ZdiBKWuqNm8GGx4K0lJQeJnENrm',
+            'enableCsrfValidation' => false,
         ],
         'response' => [
             'formatters' => [
@@ -30,6 +33,14 @@ $config = [
         'user' => [
             'identityClass' => 'app\models\User',
             'enableAutoLogin' => true,
+        ],
+        'jwt' => [
+            'class' => \kaabar\jwt\Jwt::class,
+            'key' => 'mL6RjByhZkIV4//21lo0+ZP4qTl7DI7bgiD21b3jnBw=',
+        ],
+        'as authenticator' => [
+            'class' => JwtHttpBearerAuth::class,
+            'except' => ['auth/login'], 
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
@@ -55,6 +66,7 @@ $config = [
             'showScriptName' => false,
             'rules' => [
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'user'],
+                'login' => 'auth/login',
             ],
         ],
     ],

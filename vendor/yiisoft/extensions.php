@@ -3,6 +3,15 @@
 $vendorDir = dirname(__DIR__);
 
 return array (
+  'kaabar-jwt/yii2-jwt' => 
+  array (
+    'name' => 'kaabar-jwt/yii2-jwt',
+    'version' => 'dev-master',
+    'alias' => 
+    array (
+      '@kaabar/jwt' => $vendorDir . '/kaabar-jwt/yii2-jwt/src',
+    ),
+  ),
   'yiisoft/yii2-faker' => 
   array (
     'name' => 'yiisoft/yii2-faker',
