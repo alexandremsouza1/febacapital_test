@@ -55,14 +55,16 @@ php yii create-user --login="alexandre123" --password="123" --name="Alexandre"
   }
   ```
   - **GET /GET**: Listagem de clientes
+  ```json
     Parâmetros:
         name (opcional): Filtro por nome
         cpf (opcional): Filtro por CPF
         sort (opcional): Ordenar por nome
         limit (opcional): Número máximo de registros
         offset (opcional): Pular registros
-
+    ```
     **GET /books**: Listagem de livros
+    ```json
     Parâmetros:
         isbn (opcional): Filtro por ISBN
         title (opcional): Filtro por título
@@ -70,3 +72,31 @@ php yii create-user --login="alexandre123" --password="123" --name="Alexandre"
         sort (opcional): Ordenar por nome
         limit (opcional): Número máximo de registros
         offset (opcional): Pular registros
+    ```
+
+    ### Exemplos
+
+        Listar todos os clientes:
+         ```bash
+        GET /customers
+        ```
+        
+        Listar clientes com filtro de nome:
+         ```bash
+        GET /customers?name=John
+         ```
+
+        Listar livros com filtro de ISBN:
+         ```bash
+        GET /books?isbn=9999999
+        ```
+
+        Listar livros com filtro de autor e ordenação:
+         ```bash
+        GET /books?author=John&sort=name
+         ```
+         
+        ```bash
+        Listar clientes com paginação (10 clientes por página, começando do 1º):
+        GET /customers?limit=10&offset=1
+         ```
