@@ -61,14 +61,15 @@ php yii create-user --login="alexandre123" --password="123" --name="Alexandre"
     - `sort` (opcional): Ordenar por nome
     - `limit` (opcional): Número máximo de registros
     - `offset` (opcional): Pular registros
+
 - `POST/GET /books`: Listagem de livros
     - **Parâmetros:**
-            - `isbn` (opcional): Filtro por ISBN
-            - `title` (opcional): Filtro por título
-            - `author` (opcional): Filtro por autor
-            - `sort` (opcional): Ordenar por nome
-            - `limit` (opcional): Número máximo de registros
-            - `offset` (opcional): Pular registros
+    - `isbn` (opcional): Filtro por ISBN
+    - `title` (opcional): Filtro por título
+    - `author` (opcional): Filtro por autor
+    - `sort` (opcional): Ordenar por nome
+    - `limit` (opcional): Número máximo de registros
+    - `offset` (opcional): Pular registros
 
 
 ### Exemplos de Uso
