@@ -43,9 +43,7 @@ Para criar um usuário via linha de comando, utilize:
 php yii create-user --login="alexandre123" --password="123" --name="Alexandre"
 
 
-### Endpoints da API
-
-- **POST /login**: Autenticação de usuários  
+- `POST /login`: Autenticação de usuários  
   `Content-Type: application/x-www-form-urlencoded`  
   **Corpo da Requisição:**
   ```json
@@ -53,49 +51,43 @@ php yii create-user --login="alexandre123" --password="123" --name="Alexandre"
       "login": "alexandre123",
       "password": "123"
   }
-  ```
-  - **GET /GET**: Listagem de clientes
-  ```bash
-    Parâmetros:
-        name (opcional): Filtro por nome
-        cpf (opcional): Filtro por CPF
-        sort (opcional): Ordenar por nome
-        limit (opcional): Número máximo de registros
-        offset (opcional): Pular registros
-    ```
-    **GET /books**: Listagem de livros
+
+- `POST/GET /api/customers`: Listagem de clientes
+    - **Parâmetros:**
+    - `name` (opcional): Filtro por nome
+    - `cpf` (opcional): Filtro por CPF
+    - `sort` (opcional): Ordenar por nome
+    - `limit` (opcional): Número máximo de registros
+    - `offset` (opcional): Pular registros
+- `POST/GET /books`: Listagem de livros
+    - **Parâmetros:**
+            - `isbn` (opcional): Filtro por ISBN
+            - `title` (opcional): Filtro por título
+            - `author` (opcional): Filtro por autor
+            - `sort` (opcional): Ordenar por nome
+            - `limit` (opcional): Número máximo de registros
+            - `offset` (opcional): Pular registros
+
+
+### Exemplos de Uso
+
+#### Autenticação de Usuário
+
+- **Requisição de Autenticação**
+
     ```bash
-    Parâmetros:
-        isbn (opcional): Filtro por ISBN
-        title (opcional): Filtro por título
-        author (opcional): Filtro por autor
-        sort (opcional): Ordenar por nome
-        limit (opcional): Número máximo de registros
-        offset (opcional): Pular registros
+    curl -X POST http://localhost:8000/login \
+        -H "Content-Type: application/x-www-form-urlencoded" \
+        -d "login=alexandre123&password=123"
     ```
-    ### Exemplos
 
-        Listar todos os clientes:
-         ```bash
-        GET /customers
-        ```
-        
-        Listar clientes com filtro de nome:
-         ```bash
-        GET /customers?name=John
-         ```
+    ```bash
+    curl -X GET "http://localhost:8000/api/customers?name=Alexandre&cpf=12345678900&sort=name&limit=10&offset=0" \
+        -H "Authorization: Bearer <YOUR_ACCESS_TOKEN>"
+    ```
 
-        Listar livros com filtro de ISBN:
-         ```bash
-        GET /books?isbn=9999999
-        ```
+    ```bash
+        curl -X GET "http://localhost:8000/books?isbn=9788545702870&title=Clean%20Code&author=Robert%20C.%20Martin&sort=title&limit=10&offset=0" \
+    -H "Authorization: Bearer <YOUR_ACCESS_TOKEN>"
+    ```
 
-        Listar livros com filtro de autor e ordenação:
-         ```bash
-        GET /books?author=John&sort=name
-         ```
-
-        ```bash
-        Listar clientes com paginação (10 clientes por página, começando do 1º):
-        GET /customers?limit=10&offset=1
-         ```
