@@ -58,4 +58,13 @@ return array (
     ),
     'bootstrap' => 'yii\\bootstrap5\\i18n\\TranslationBootstrap',
   ),
+  'dynamikaweb/yii2-brasilapi' => 
+  array (
+    'name' => 'dynamikaweb/yii2-brasilapi',
+    'version' => '1.0.1.0',
+    'alias' => 
+    array (
+      '@dynamikaweb/brasilapi' => $vendorDir . '/dynamikaweb/yii2-brasilapi/src',
+    ),
+  ),
 );

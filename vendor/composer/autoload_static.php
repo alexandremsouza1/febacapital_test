@@ -39,6 +39,10 @@ class ComposerStaticInit114b68e690307fdc44cc2b07424c61fb
         array (
             'kaabar\\jwt\\' => 11,
         ),
+        'd' => 
+        array (
+            'dynamikaweb\\brasilapi\\' => 22,
+        ),
         'c' => 
         array (
             'cebe\\markdown\\' => 14,
@@ -140,6 +144,10 @@ class ComposerStaticInit114b68e690307fdc44cc2b07424c61fb
         array (
             0 => __DIR__ . '/..' . '/kaabar-jwt/yii2-jwt/src',
         ),
+        'dynamikaweb\\brasilapi\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/dynamikaweb/yii2-brasilapi/src',
+        ),
         'cebe\\markdown\\' => 
         array (
             0 => __DIR__ . '/..' . '/cebe/markdown',
@@ -226,8 +234,8 @@ class ComposerStaticInit114b68e690307fdc44cc2b07424c61fb
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\EventDispatcher\\' => 
         array (
@@ -283,9 +291,9 @@ class ComposerStaticInit114b68e690307fdc44cc2b07424c61fb
         ),
         'Codeception\\' => 
         array (
-            0 => __DIR__ . '/..' . '/codeception/stub/src',
-            1 => __DIR__ . '/..' . '/codeception/verify/src/Codeception',
-            2 => __DIR__ . '/..' . '/codeception/codeception/src/Codeception',
+            0 => __DIR__ . '/..' . '/codeception/codeception/src/Codeception',
+            1 => __DIR__ . '/..' . '/codeception/stub/src',
+            2 => __DIR__ . '/..' . '/codeception/verify/src/Codeception',
         ),
     );
 
@@ -302,6 +310,13 @@ class ComposerStaticInit114b68e690307fdc44cc2b07424c61fb
             'Diff' => 
             array (
                 0 => __DIR__ . '/..' . '/phpspec/php-diff/lib',
+            ),
+        ),
+        'C' => 
+        array (
+            'Curl' => 
+            array (
+                0 => __DIR__ . '/..' . '/curl/curl/src',
             ),
         ),
         'B' => 

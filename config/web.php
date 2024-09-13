@@ -66,11 +66,17 @@ $config = [
             'showScriptName' => false,
             'rules' => [
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'user'],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'customer'],
                 'login' => 'auth/login',
             ],
         ],
     ],
     'params' => $params,
+    'modules' => [
+        'brasilapi' =>  [
+            'class' => '\dynamikaweb\brasilapi\Module'
+        ],
+    ]
 ];
 
 if (YII_ENV_DEV) {

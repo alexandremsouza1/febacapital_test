@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "114b68e690307fdc44cc2b07424c61fb",
+    "content-hash": "a7a84fc17efd776597fd6d56518fa3c2",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -161,6 +161,64 @@
             "time": "2018-03-26T11:24:36+00:00"
         },
         {
+            "name": "curl/curl",
+            "version": "2.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-mod/curl.git",
+                "reference": "c4f8799c471e43b7c782c77d5c6e178d0465e210"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-mod/curl/zipball/c4f8799c471e43b7c782c77d5c6e178d0465e210",
+                "reference": "c4f8799c471e43b7c782c77d5c6e178d0465e210",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": "^5.6 | ^7.0 | ^8.0"
+            },
+            "require-dev": {
+                "yoast/phpunit-polyfills": "^0.2.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Curl": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "php-curl-class",
+                    "homepage": "https://github.com/php-curl-class"
+                },
+                {
+                    "name": "Hassan Amouhzi",
+                    "email": "hassan@anezi.net",
+                    "homepage": "http://hassan.amouhzi.com"
+                },
+                {
+                    "name": "user52",
+                    "homepage": "https://github.com/user52"
+                }
+            ],
+            "description": "cURL class for PHP",
+            "homepage": "https://github.com/php-mod/curl",
+            "keywords": [
+                "curl",
+                "dot"
+            ],
+            "support": {
+                "issues": "https://github.com/php-mod/curl/issues",
+                "source": "https://github.com/php-mod/curl/tree/2.5.0"
+            },
+            "time": "2022-12-14T13:27:59+00:00"
+        },
+        {
             "name": "doctrine/lexer",
             "version": "3.0.1",
             "source": {
@@ -236,6 +294,60 @@
                 }
             ],
             "time": "2024-02-05T11:56:58+00:00"
+        },
+        {
+            "name": "dynamikaweb/yii2-brasilapi",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dynamikaweb/yii2-brasilapi.git",
+                "reference": "38298d57a9fabbb8e175a35cf2a9da5adcbded2d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dynamikaweb/yii2-brasilapi/zipball/38298d57a9fabbb8e175a35cf2a9da5adcbded2d",
+                "reference": "38298d57a9fabbb8e175a35cf2a9da5adcbded2d",
+                "shasum": ""
+            },
+            "require": {
+                "curl/curl": "^2.0",
+                "php": ">=7.0",
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "dynamikaweb\\brasilapi\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Rodrigo Dornelles",
+                    "email": "rodrigo@dynamika.com.br",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Robson Soares",
+                    "email": "robson@dynamika.com.br",
+                    "role": "Developer"
+                }
+            ],
+            "description": "yii2 widget for zip code queries from Brazil, using BrasilApi resources",
+            "keywords": [
+                "BrasilApi",
+                "dynamika",
+                "yii",
+                "yii2"
+            ],
+            "support": {
+                "issues": "http://github.com/dynamikaweb/yii2-brasilapi/issues",
+                "source": "http://github.com/dynamikaweb/yii2-brasilapi"
+            },
+            "time": "2021-07-05T18:55:38+00:00"
         },
         {
             "name": "egulias/email-validator",
