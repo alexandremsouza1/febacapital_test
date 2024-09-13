@@ -3,7 +3,7 @@
         'name' => 'yiisoft/yii2-app-basic',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'c9fb885d1563613df13d5e8df8b9e5bd746859ea',
+        'reference' => '3bcf7a4b176abb1773c1caf3c487c97a7a455a58',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -804,7 +804,7 @@
         'yiisoft/yii2-app-basic' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'c9fb885d1563613df13d5e8df8b9e5bd746859ea',
+            'reference' => '3bcf7a4b176abb1773c1caf3c487c97a7a455a58',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -854,6 +854,15 @@
             'install_path' => __DIR__ . '/../yiisoft/yii2-gii',
             'aliases' => array(),
             'dev_requirement' => true,
+        ),
+        'yiisoft/yii2-httpclient' => array(
+            'pretty_version' => '2.0.15',
+            'version' => '2.0.15.0',
+            'reference' => '5a8350e15f2db3555ba52830c9c701587c136e87',
+            'type' => 'yii2-extension',
+            'install_path' => __DIR__ . '/../yiisoft/yii2-httpclient',
+            'aliases' => array(),
+            'dev_requirement' => false,
         ),
         'yiisoft/yii2-symfonymailer' => array(
             'pretty_version' => '2.0.4',

@@ -86,7 +86,7 @@ class AuthController extends Controller
 
     private function generateRefreshToken(\app\models\User $user, string $token)
     {
-        $expiresAt = (new \DateTimeImmutable())->modify('+5 minutes')->getTimestamp();
+        $expiresAt = (new \DateTimeImmutable())->modify('+1 hour')->getTimestamp();
         $userRefreshToken = new \app\models\UserRefreshToken([
             'urf_userID' => $user->id,
             'urf_token' => $token,

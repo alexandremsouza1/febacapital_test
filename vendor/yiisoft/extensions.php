@@ -67,4 +67,13 @@ return array (
       '@dynamikaweb/brasilapi' => $vendorDir . '/dynamikaweb/yii2-brasilapi/src',
     ),
   ),
+  'yiisoft/yii2-httpclient' => 
+  array (
+    'name' => 'yiisoft/yii2-httpclient',
+    'version' => '2.0.15.0',
+    'alias' => 
+    array (
+      '@yii/httpclient' => $vendorDir . '/yiisoft/yii2-httpclient/src',
+    ),
+  ),
 );

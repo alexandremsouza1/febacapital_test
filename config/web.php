@@ -67,13 +67,14 @@ $config = [
             'rules' => [
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'user'],
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'customer'],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'book'],
                 'login' => 'auth/login',
             ],
         ],
     ],
     'params' => $params,
     'modules' => [
-        'brasilapi' =>  [
+        'brasilApi' =>  [
             'class' => '\dynamikaweb\brasilapi\Module'
         ],
     ]
