@@ -39,24 +39,21 @@ class User extends ActiveRecord implements IdentityInterface
 
     public static function findIdentityByAccessToken($token, $type = null)
     {
-        // Primeiro, procure o refresh token na tabela user_refresh_tokens
         $refreshToken = UserRefreshToken::find()
             ->where(['urf_token' => (string)$token])
-            ->andWhere(['>', 'urf_expires_at', time()])  // Verifica se o token não expirou
+            ->andWhere(['>', 'urf_expires_at', time()]) 
             ->one();
     
         if (!$refreshToken) {
-            return null;  // Token não encontrado ou expirado
+            return null;  
         }
     
-        // Encontre o usuário associado ao refresh token
         return \app\models\User::find()
             ->where(['id' => $refreshToken->urf_userID])
             ->one();
     }
 
     public function afterSave($isInsert, $changedOldAttributes) {
-		// Purge the user tokens when the password is changed
 		if (array_key_exists('usr_password', $changedOldAttributes)) {
 			\app\models\UserRefreshToken::deleteAll(['urf_userID' => $this->userID]);
 		}

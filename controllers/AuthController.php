@@ -25,12 +25,10 @@ class AuthController extends Controller
 
     public function actionLogin()
     {
-        // Receber os dados da requisição POST
         $request = Yii::$app->request;
         $login = $request->post('login');
         $password = $request->post('password');
     
-        // Verificar se login e senha foram fornecidos
         if (empty($login) || empty($password)) {
             return $this->asJson([
                 'success' => false,
@@ -38,10 +36,8 @@ class AuthController extends Controller
             ]);
         }
     
-        // Encontrar o usuário no banco de dados pelo campo 'login' (ou 'email')
-        $user = User::findOne(['login' => $login]); // Modifique se for por email
+        $user = User::findOne(['login' => $login]);
     
-        // Validar se o usuário existe e se a senha é correta
         if (!$user || !$user->validatePassword($password)) {
             return $this->asJson([
                 'success' => false,
@@ -54,7 +50,7 @@ class AuthController extends Controller
 
         return $this->asJson([
             'success' => true,
-            'token' => $token, // O token gerado
+            'token' => $token, 
         ]);
     }
 
@@ -65,7 +61,6 @@ class AuthController extends Controller
     
         $now = new \DateTimeImmutable();
     
-        // Parâmetros JWT definidos em `params.php`
         $jwtParams = Yii::$app->params['jwt'];
     
         $token = $jwt->getBuilder()
