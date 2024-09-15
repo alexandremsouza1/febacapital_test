@@ -22,7 +22,20 @@ class BookController extends ActiveController
 
         return $behaviors;
     }
-
+    /**
+     * @OA\Get(
+     *     path="/books",
+     *     summary="Lista todos os livros",
+     *     @OA\Response(
+     *         response=200,
+     *         description="Sucesso",
+     *         @OA\JsonContent(
+     *             type="array",
+     *             @OA\Items(ref="#/components/schemas/Book")
+     *         )
+     *     )
+     * )
+     */
     public function actions()
     {
         $actions = parent::actions();

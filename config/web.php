@@ -4,6 +4,8 @@ $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
 
 use kaabar\jwt\JwtHttpBearerAuth;
+use Yiisoft\Definitions\Reference;
+use Yiisoft\Assets\AssetManager;
 
 $config = [
     'id' => 'basic',
@@ -69,6 +71,8 @@ $config = [
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'customer'],
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'book'],
                 'login' => 'auth/login',
+                'GET swagger/doc' => 'swagger/doc',
+                'GET swagger/api' => 'swagger/api',
             ],
         ],
     ],
@@ -77,6 +81,10 @@ $config = [
         'brasilApi' =>  [
             'class' => '\dynamikaweb\brasilapi\Module'
         ],
+        // 'swagger' => [
+        //     'class' => 'light\swagger\SwaggerModule',
+        //     'jsonPath' => '@app/swagger/swagger.json',
+        // ],
     ]
 ];
 

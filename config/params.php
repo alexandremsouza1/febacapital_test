@@ -11,4 +11,9 @@ return [
         'request_time' => '+0 seconds',  // Tempo antes de poder ser usado
         'expire' => '+1 hour',      // Tempo de expiração do token
     ],
+    'yiisoft/yii-swagger' => [
+        'annotation-paths' => [
+          '@app/controllers',
+        ],
+    ],
 ];
