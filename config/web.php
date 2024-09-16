@@ -65,9 +65,9 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                ['class' => 'yii\rest\UrlRule', 'controller' => 'user'],
-                ['class' => 'yii\rest\UrlRule', 'controller' => 'customer'],
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'book'],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'customer'],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'user'],
                 'login' => 'auth/login',
             ],
         ],

@@ -61,6 +61,15 @@ class User extends ActiveRecord implements IdentityInterface
 		return parent::afterSave($isInsert, $changedOldAttributes);
 	}
 
+    /**
+     * @param $username
+     * @return User|null
+     */
+    public static function findByUsername($username): ?User
+    {
+        return static::findOne(['username' => $username]);
+    }
+
     public function getId()
     {
         return $this->getPrimaryKey();
