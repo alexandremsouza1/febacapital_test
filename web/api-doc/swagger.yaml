@@ -1,0 +1,446 @@
+openapi: 3.0.0
+info:
+  title: 'Books API'
+  version: 1.0.0
+servers:
+  -
+    url: 'http://localhost:8000'
+paths:
+  /login:
+    post:
+      tags:
+        - API-KEY
+      summary: 'Autenticação de usuário'
+      description: 'Realiza o login e retorna o token JWT para autenticação.'
+      operationId: cebb4bbcd70092d48c1ca9c079ad7f8f
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              required:
+                - login
+                - password
+              properties:
+                login:
+                  description: 'Login do usuário'
+                  type: string
+                password:
+                  description: 'Senha do usuário'
+                  type: string
+              type: object
+      responses:
+        '200':
+          description: 'Login bem-sucedido'
+          content:
+            application/json:
+              schema:
+                properties:
+                  success: { type: boolean, example: true }
+                  token: { description: 'Token JWT de autenticação', type: string }
+                type: object
+        '400':
+          description: 'Dados inválidos'
+          content:
+            application/json:
+              schema:
+                properties:
+                  success: { type: boolean, example: false }
+                  message: { type: string, example: 'Login e senha são obrigatórios.' }
+                type: object
+        '401':
+          description: 'Login ou senha inválidos'
+          content:
+            application/json:
+              schema:
+                properties:
+                  success: { type: boolean, example: false }
+                  message: { type: string, example: 'Login ou senha inválidos.' }
+                type: object
+  /books:
+    get:
+      tags:
+        - Books
+      summary: 'Lista de livros'
+      description: 'Retorna uma lista de livros com suporte a filtros por título, autor e ISBN, além de ordenação e paginação.'
+      operationId: 101458f1cdc8a823172815d0d500b484
+      parameters:
+        -
+          name: title
+          in: query
+          description: 'Filtrar livros pelo título'
+          required: false
+          schema:
+            type: string
+        -
+          name: author
+          in: query
+          description: 'Filtrar livros pelo autor'
+          required: false
+          schema:
+            type: string
+        -
+          name: isbn
+          in: query
+          description: 'Filtrar livros pelo ISBN'
+          required: false
+          schema:
+            type: string
+        -
+          name: sort
+          in: query
+          description: 'Ordenar os resultados por campo (ex: id, title, -id para ordem decrescente)'
+          required: false
+          schema:
+            type: string
+            example: id
+        -
+          name: limit
+          in: query
+          description: 'Limite de resultados por página'
+          required: false
+          schema:
+            type: integer
+            example: 20
+        -
+          name: offset
+          in: query
+          description: 'Offset dos resultados (para paginação)'
+          required: false
+          schema:
+            type: integer
+            example: 0
+      responses:
+        '200':
+          description: 'Lista de livros'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Book'
+        '401':
+          description: 'Não autorizado'
+      security:
+        -
+          bearerAuth: []
+    post:
+      tags:
+        - Books
+      summary: 'Criar um novo livro'
+      description: 'Adiciona um novo livro ao banco de dados.'
+      operationId: 3096bbcd2efa33183e5c6ed1cf9749a9
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              required:
+                - isbn
+                - title
+                - author
+                - price
+                - stock
+              properties:
+                isbn:
+                  description: 'ISBN do livro'
+                  type: string
+                  example: 978-3-16-148410-0
+                title:
+                  description: 'Título do livro'
+                  type: string
+                  example: 'Exemplo de Livro'
+                author:
+                  description: 'Autor do livro'
+                  type: string
+                  example: 'Autor Exemplo'
+                price:
+                  description: 'Preço do livro'
+                  type: number
+                  format: float
+                  example: 29.99
+                stock:
+                  description: 'Quantidade em estoque'
+                  type: integer
+                  example: 100
+                image:
+                  description: 'Imagem do livro (arquivo de imagem)'
+                  type: string
+                  format: binary
+              type: object
+      responses:
+        '201':
+          description: 'Livro criado com sucesso'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Book'
+        '400':
+          description: 'Dados inválidos'
+          content:
+            application/json:
+              schema:
+                properties:
+                  success: { type: boolean, example: false }
+                  message: { type: string, example: 'Erro ao validar os dados.' }
+                type: object
+        '401':
+          description: 'Não autorizado'
+      security:
+        -
+          bearerAuth: []
+  /customers:
+    get:
+      tags:
+        - Customers
+      summary: 'Obter a lista de clientes'
+      description: 'Retorna uma lista de clientes, com filtros opcionais por nome e CPF.'
+      operationId: ed5ea4407c566b8213793a62e646b269
+      parameters:
+        -
+          name: name
+          in: query
+          description: 'Filtra clientes pelo nome'
+          required: false
+          schema:
+            type: string
+            example: João
+        -
+          name: cpf
+          in: query
+          description: 'Filtra clientes pelo CPF'
+          required: false
+          schema:
+            type: string
+            example: '12345678900'
+        -
+          name: sort
+          in: query
+          description: "Ordena o resultado por um campo, exemplo: '-id' para ordenar decrescentemente"
+          required: false
+          schema:
+            type: string
+            example: '-id'
+        -
+          name: limit
+          in: query
+          description: 'Número de registros por página'
+          required: false
+          schema:
+            type: integer
+            example: 20
+        -
+          name: offset
+          in: query
+          description: 'Deslocamento para paginação (baseado no limite)'
+          required: false
+          schema:
+            type: integer
+            example: 0
+      responses:
+        '200':
+          description: 'Lista de clientes obtida com sucesso'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Customer'
+        '401':
+          description: 'Não autorizado'
+      security:
+        -
+          bearerAuth: []
+    post:
+      tags:
+        - Customers
+      summary: 'Criar um novo cliente'
+      description: 'Adiciona um novo cliente ao banco de dados.'
+      operationId: 9830327f7dc5301311a54b4a42f62eda
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              required:
+                - name
+                - cpf
+                - cep
+                - street
+                - number
+                - city
+                - state
+                - gender
+              properties:
+                name:
+                  description: 'Nome do cliente'
+                  type: string
+                  example: 'João da Silva'
+                cpf:
+                  description: 'CPF do cliente'
+                  type: string
+                  example: 123.456.789-00
+                cep:
+                  description: 'CEP do cliente'
+                  type: string
+                  example: 12345-678
+                street:
+                  description: 'Rua do cliente'
+                  type: string
+                  example: 'Rua das Flores'
+                number:
+                  description: 'Número da residência'
+                  type: string
+                  example: '123'
+                city:
+                  description: 'Cidade do cliente'
+                  type: string
+                  example: 'São Paulo'
+                state:
+                  description: 'Estado do cliente'
+                  type: string
+                  example: SP
+                gender:
+                  description: 'Gênero do cliente'
+                  type: string
+                  example: M
+                complement:
+                  description: 'Complemento do endereço'
+                  type: string
+                  example: 'Apartamento 45'
+              type: object
+      responses:
+        '201':
+          description: 'Cliente criado com sucesso'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+        '400':
+          description: 'Dados inválidos'
+          content:
+            application/json:
+              schema:
+                properties:
+                  success: { type: boolean, example: false }
+                  message: { type: string, example: 'Erro ao validar os dados.' }
+                type: object
+        '401':
+          description: 'Não autorizado'
+      security:
+        -
+          bearerAuth: []
+components:
+  schemas:
+    Book:
+      required:
+        - isbn
+        - title
+        - author
+        - price
+        - stock
+      properties:
+        isbn:
+          description: 'ISBN do livro'
+          type: string
+          example: 978-3-16-148410-0
+        title:
+          description: 'Título do livro'
+          type: string
+          example: 'Exemplo de Livro'
+        author:
+          description: 'Autor do livro'
+          type: string
+          example: 'Autor Exemplo'
+        price:
+          description: 'Preço do livro'
+          type: number
+          format: float
+          example: 29.99
+        stock:
+          description: 'Quantidade em estoque'
+          type: integer
+          example: 100
+        image:
+          description: 'URL da imagem do livro'
+          type: string
+          example: 'https://example.com/livro.jpg'
+        created_at:
+          description: 'Data de criação (timestamp)'
+          type: integer
+          example: 1609459200
+        updated_at:
+          description: 'Data de atualização (timestamp)'
+          type: integer
+          example: 1609459200
+      type: object
+    Customer:
+      required:
+        - name
+        - cpf
+        - cep
+        - street
+        - number
+        - city
+        - state
+        - gender
+      properties:
+        id:
+          description: 'ID do cliente'
+          type: integer
+          example: 1
+        name:
+          description: 'Nome do cliente'
+          type: string
+          example: 'João da Silva'
+        cpf:
+          description: 'CPF do cliente'
+          type: string
+          example: 123.456.789-00
+        cep:
+          description: 'CEP do cliente'
+          type: string
+          example: 12345-678
+        street:
+          description: 'Rua do cliente'
+          type: string
+          example: 'Rua das Flores'
+        number:
+          description: 'Número da residência'
+          type: string
+          example: '123'
+        city:
+          description: 'Cidade do cliente'
+          type: string
+          example: 'São Paulo'
+        state:
+          description: 'Estado do cliente'
+          type: string
+          example: SP
+        gender:
+          description: 'Gênero do cliente'
+          type: string
+          example: M
+        complement:
+          description: 'Complemento do endereço'
+          type: string
+          example: 'Apartamento 45'
+        created_at:
+          description: 'Timestamp de criação'
+          type: integer
+          example: 1632960000
+        updated_at:
+          description: 'Timestamp de atualização'
+          type: integer
+          example: 1632960000
+      type: object
+tags:
+  -
+    name: API-KEY
+    description: API-KEY
+  -
+    name: Books
+    description: Books
+  -
+    name: Customers
+    description: Customers
